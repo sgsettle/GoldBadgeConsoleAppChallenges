@@ -10,6 +10,8 @@ namespace ChallengeOne
     {
         static void Main(string[] args)
         {
+            MenuUI menuUI = new MenuUI();
+            menuUI.Start();
         }
     }
 }

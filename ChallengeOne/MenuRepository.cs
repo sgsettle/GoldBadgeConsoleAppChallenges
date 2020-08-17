@@ -55,5 +55,10 @@ namespace ChallengeOne
             return _menuDirectory.Remove(content);
         }
 
+        public bool DeleteContentByName(string name)
+        {
+            Menu targetName = GetMenuItemByName(name);
+            return DeleteExistingMenuItem(targetName);
+        }
     }
 }
