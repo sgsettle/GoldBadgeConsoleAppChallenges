@@ -61,16 +61,12 @@ namespace ChallengeOne
                     UpdateMenuItem();
                     break;
                 case "5":
-                    RemoveMenuItem();
+                    RemoveMenuItemByName();
                     break;
                 case "6":
-                    // exit
                     _isRunning = false;
                     return;
-                // changed to return to escape the method without worrying about ReadKey that's outside of the switch case
-                // if break instead of return, it will get hung up on ReadKey and user will have to hit another key on exit
                 default:
-                    // Invalid selection
                     Console.WriteLine("Invalid input.");
                     return;
             }
@@ -139,6 +135,8 @@ namespace ChallengeOne
             Menu newContent = new Menu(mealNumber, mealName, description, ingredients, price);
 
             _menuRepo.AddContentToMenu(newContent);
+
+            Console.WriteLine("Item has been added!");
         }
 
         private void UpdateMenuItem()
@@ -146,12 +144,43 @@ namespace ChallengeOne
             Console.WriteLine("Enter a Meal Name:");
             string mealInput = Console.ReadLine();
 
-            
+            _menuRepo.GetMenuItemByName(mealInput);
+
+            // Meal Number
+            Console.Write("Enter a Meal Number: ");
+            int mealNumber = int.Parse(Console.ReadLine());
+
+            // Meal Name 
+            Console.Write("Enter a Meal Name: ");
+            string mealName = Console.ReadLine();
+
+            //Description
+            Console.Write("Enter a Desscription: ");
+            string description = Console.ReadLine();
+
+            // Ingredients
+            Console.Write("Enter the Ingredients: ");
+            string ingredients = Console.ReadLine();
+
+            // Price
+            Console.Write("Enter a Price: $");
+            decimal price = decimal.Parse(Console.ReadLine());
+
+            Menu updatedContent = new Menu(mealNumber, mealName, description, ingredients, price);
+
+            _menuRepo.UpdateExistingMenu(updatedContent, mealInput);
+
+            Console.WriteLine("Item has been updated!");
         }
 
-        private void RemoveMenuItem()
+        private void RemoveMenuItemByName()
         {
+            Console.Write("Enter a Meal Name: ");
+            string mealName = Console.ReadLine();
 
+            _menuRepo.DeleteContentByName(mealName);
+
+            Console.WriteLine("Item has been deleted!");
         }
 
         private void SeedContentList()

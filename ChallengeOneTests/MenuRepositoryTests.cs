@@ -21,6 +21,17 @@ namespace ChallengeOneTests
         }
 
         [TestMethod]
+        public void CreateMenuItem_ShouldReturnCorrect()
+        {
+            MenuRepository repo = new MenuRepository();
+            Menu content = new Menu(4, "hot dog", "hot dog", "bun and wiener", 3.99m);
+
+            repo.AddContentToMenu(content);
+
+            Assert.AreEqual(content.MealName, "hot dog");
+        }
+
+        [TestMethod]
         public void GetDirectory_ShouldReturnCorrectCollection()
         {
             List<Menu> directory = _menuRepo.GetMenu();
@@ -28,6 +39,23 @@ namespace ChallengeOneTests
             bool directoryHasMenu = directory.Contains(_menu);
 
             Assert.IsTrue(directoryHasMenu);
+        }
+
+        [TestMethod]
+        public void GetItemByName_ShouldReturnCorrectItem()
+        {
+            Menu correctObject = _menuRepo.GetMenuItemByName("Pizza");
+
+            Assert.AreEqual(correctObject.Price, 15.99m);
+        }
+
+        [DataTestMethod]
+        [DataRow("pizza", true)]
+        public void UpdateExistingItem_ShouldReturnTrue(string name, bool expectedResult)
+        {
+            bool updateItem = _menuRepo.UpdateExistingMenu(_menu, name);
+
+            Assert.AreEqual(expectedResult, updateItem);
         }
 
         [TestMethod]
