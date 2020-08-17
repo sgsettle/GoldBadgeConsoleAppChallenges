@@ -26,7 +26,7 @@ namespace ChallengeTwo
         {
             foreach (Claim item in _claimDirectory)
             {
-                if (item.ClaimID)
+                if (item.ClaimID == claimID)
                 {
                     return item;
                 }
@@ -36,6 +36,18 @@ namespace ChallengeTwo
         }
 
         // UPDATE
+        public bool UpdateExistingClaim(Claim updatedClaim, int originalClaim)
+        {
+            Claim content = GetClaimByID(originalClaim);
+            if (content != null)
+            {
+                int itemIndex = _claimDirectory.IndexOf(content);
+                _claimDirectory[itemIndex] = updatedClaim;
+                return true;
+            }
+
+            return false;
+        }
 
         // DELETE
 
