@@ -70,7 +70,7 @@ namespace ChallengeOne
                     Console.WriteLine("Invalid input.");
                     return;
             }
-            Console.WriteLine("Press any key to return to the menu...");
+            Console.WriteLine("Press any key to return to the menu.");
             Console.ReadKey();
         }
 

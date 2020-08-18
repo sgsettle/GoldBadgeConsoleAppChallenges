@@ -8,16 +8,16 @@ namespace ChallengeTwo
 {
     public class ClaimRepository
     {
-        private List<Claim> _claimDirectory = new List<Claim>();
+        private Queue<Claim> _claimDirectory = new Queue<Claim>();
 
         // CREATE
         public void CreateNewClaim(Claim content)
         {
-            _claimDirectory.Add(content);
+            _claimDirectory.Enqueue(content);
         }
 
         // READ
-        public List<Claim> GetClaims()
+        public Queue<Claim> GetClaims()
         {
             return _claimDirectory;
         }
@@ -41,8 +41,8 @@ namespace ChallengeTwo
             Claim content = GetClaimByID(originalClaim);
             if (content != null)
             {
-                int itemIndex = _claimDirectory.IndexOf(content);
-                _claimDirectory[itemIndex] = updatedClaim;
+                int itemIndex = _claimDirectory.ToArray().ToList().IndexOf(content);
+                _claimDirectory.ToArray()[itemIndex] = updatedClaim;
                 return true;
             }
 
@@ -50,6 +50,11 @@ namespace ChallengeTwo
         }
 
         // DELETE
+        public void DeleteExistingClaim()
+        {
+            _claimDirectory.Dequeue();
+        }
 
+        
     }
 }

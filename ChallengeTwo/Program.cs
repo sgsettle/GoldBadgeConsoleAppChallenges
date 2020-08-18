@@ -10,6 +10,8 @@ namespace ChallengeTwo
     {
         static void Main(string[] args)
         {
+            ClaimUI claimUI = new ClaimUI();
+            claimUI.Start();
         }
     }
 }
