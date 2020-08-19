@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -51,7 +52,7 @@ namespace ChallengeTwo
                     DisplayAllClaims();
                     break;
                 case "2":
-                    ClaimQueue();
+                    TakeCareOfNextClaim();
                     break;
                 case "3":
                     CreateNewClaim();
@@ -76,11 +77,11 @@ namespace ChallengeTwo
 
             foreach (Claim item in listOfClaims)
             {
-                DisplayClaims(item);
+                DisplayClaim(item);
             }
         }
 
-        private void DisplayClaims(Claim claim)
+        private void DisplayClaim(Claim claim)
         {
             Console.WriteLine($"Claim ID: {claim.ClaimID}\n" +
                 $"Claim Type: {claim.ClaimType}\n" +
@@ -88,12 +89,39 @@ namespace ChallengeTwo
                 $"Amount: {claim.ClaimAmount}\n" +
                 $"Date of Incident: {claim.DateOfIncident}\n" +
                 $"Date of Claim: {claim.DateOfClaim}\n" +
-                $"Is Valid: {claim.IsValid}");
+                $"Is Valid: {claim.IsValid}\n");
         }
 
-        private void ClaimQueue()
+        private void TakeCareOfNextClaim()
         {
-            
+            Queue<Claim> claimQueue = _claimRepo.GetClaims();
+
+            bool nextClaimBool = true;
+
+            while (nextClaimBool)
+            {
+                if (claimQueue.Count > 0)
+                {
+                    var next = claimQueue.Peek();
+                    DisplayClaim(next);
+                }
+
+                Console.WriteLine("Do you want to deal with this claim now (y/n):");
+                string userInput = Console.ReadLine();
+
+                if (userInput == "y")
+                {
+                    claimQueue.Dequeue();
+                }
+                else if (userInput == "n")
+                {
+                    nextClaimBool = false;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid Input.");
+                }
+            }
         }
 
         private void CreateNewClaim()

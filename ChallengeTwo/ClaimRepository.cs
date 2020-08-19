@@ -41,8 +41,13 @@ namespace ChallengeTwo
             Claim content = GetClaimByID(originalClaim);
             if (content != null)
             {
-                int itemIndex = _claimDirectory.ToArray().ToList().IndexOf(content);
-                _claimDirectory.ToArray()[itemIndex] = updatedClaim;
+                content.ClaimID = updatedClaim.ClaimID;
+                content.ClaimType = updatedClaim.ClaimType;
+                content.Description = updatedClaim.Description;
+                content.DateOfIncident = updatedClaim.DateOfIncident;
+                content.DateOfClaim = updatedClaim.DateOfClaim;
+                //int itemIndex = _claimDirectory.ToArray().ToList().IndexOf(content);
+                //_claimDirectory.ToArray()[itemIndex] = updatedClaim;
                 return true;
             }
 
