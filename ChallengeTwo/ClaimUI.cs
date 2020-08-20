@@ -83,13 +83,15 @@ namespace ChallengeTwo
 
         private void DisplayClaim(Claim claim)
         {
-            Console.WriteLine($"Claim ID: {claim.ClaimID}\n" +
-                $"Claim Type: {claim.ClaimType}\n" +
-                $"Description: {claim.Description}\n" +
-                $"Amount: {claim.ClaimAmount}\n" +
-                $"Date of Incident: {claim.DateOfIncident}\n" +
-                $"Date of Claim: {claim.DateOfClaim}\n" +
-                $"Is Valid: {claim.IsValid}\n");
+            Console.WriteLine($"\n " +
+                $"{ "ClaimID",-30}{ "Claim Type",-30}{ "Description",-30}{ "Claim Amount",-30}{ "Date Of Incident",-30}{ "DateOfClaim",-30}{ "IsValid",-30}\n" +
+                $"{claim.ClaimID, -30}" +
+                $"{claim.ClaimType, -30}" +
+                $"{claim.Description, -30}" +
+                $"{claim.ClaimAmount, -30}" +
+                $"{claim.DateOfIncident, -30}" +
+                $"Date of Claim: {claim.DateOfClaim, -30}" +
+                $"Is Valid: {claim.IsValid, -30}");
         }
 
         private void TakeCareOfNextClaim()

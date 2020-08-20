@@ -8,8 +8,14 @@ namespace ChallengeThree
 {
     public class Badge
     {
+        public Badge() { }
+        public Badge(int badgeID, List<string> doors)
+        {
+            BadgeID = badgeID;
+            Doors = doors;
+        }
+
         public int BadgeID { get; set; }
         public List<string> Doors { get; set; }
-        public string Badge { get; set; }
     }
 }

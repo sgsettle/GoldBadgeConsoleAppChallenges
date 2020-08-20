@@ -10,6 +10,8 @@ namespace ChallengeThree
     {
         static void Main(string[] args)
         {
+            BadgeUI badgeUI = new BadgeUI();
+            badgeUI.Start();
         }
     }
 }
