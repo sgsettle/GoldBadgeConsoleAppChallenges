@@ -37,9 +37,9 @@ Yum, yum!
 Challenge One presents the user with the ability to manage a food menu.
 
 You will be able to: 
->> Create new menu items
->> Update existing menu items
->> List all menu items
+1. Create new menu items
+2. Update existing menu items
+3. List all menu items
 
 ### Challenge Two
 
@@ -48,10 +48,10 @@ Safety first!
 Challenge Two presents the user with the ability to manage insurance claims.
 
 You will be able to: 
->> See all claims
->> Take care of next claim in the queue
->> Enter a new claim
->> Update an existing claim
+1. See all claims
+2. Take care of next claim in the queue
+3. Enter a new claim
+4. Update an existing claim
 
 ### Challenge Three
 
@@ -60,8 +60,8 @@ Let's talk about security!!
 Challenge Three presents the user with the ability to manage badges that have access to doors.
 
 You will be able to:
->> Create a new badge with a badge ID and give access to doors
->> Update an existing badge by badge ID
->>>>> Remove access to a door 
->>>>> Add access to a door
->> List all badges with ID and door access
+1. Create a new badge with a badge ID and give access to doors
+2. Update an existing badge by badge ID
+>> Remove access to a door 
+>> Add access to a door
+3. List all badges with ID and door access
