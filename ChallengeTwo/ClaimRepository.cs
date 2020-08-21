@@ -60,6 +60,6 @@ namespace ChallengeTwo
             _claimDirectory.Dequeue();
         }
 
-        
+        // Did not create test for this method since I never used it
     }
 }
