@@ -46,15 +46,22 @@ namespace ChallengeThreeTests
         [DataRow("D55", true)]
         public void UpdateBadge_ShouldReturnTrue(string door, bool expectedResult)
         {
+            Arrange(); 
+
             bool updateBadge = _badgeRepo.AddDoorToExistingBadge(12345, door);
 
             Assert.AreEqual(expectedResult, updateBadge);
         }
 
-        [TestMethod]
-        public void DeleteDoor_()
+        [DataTestMethod]
+        [DataRow("A5", true)]
+        public void DeleteExistingDoor_ShouldReturnTrue(string door, bool expectedResult)
         {
+            Arrange(); 
 
+            bool deleteDoor = _badgeRepo.RemoveDoorFromExistingBadge(12345, door);
+
+            Assert.AreEqual(expectedResult, deleteDoor);
         }
     }
 }
