@@ -63,5 +63,5 @@ You will be able to:
 1. Create a new badge with a badge ID and give access to doors
 2. Update an existing badge by badge ID
 >> Remove access to a door 
->> Add access to a door
+>>> Add access to a door
 3. List all badges with ID and door access
